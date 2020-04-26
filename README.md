@@ -10,7 +10,7 @@
 
 # Usage
 
-/arcaneclient - lists all players on the client
+/arcaneclient, /ac, /aac  - lists all players on the client
 
 # Credits
 
