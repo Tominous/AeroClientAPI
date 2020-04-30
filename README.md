@@ -12,7 +12,7 @@
 
 - Staff Modules (You must be OP to have them enabled, and sometimes requires a relog.)
 
-- /aac
+- /aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Arcane Client Dev are Arcane Client staff, but we included that just in case.
 
 - Cooldowns
 
@@ -22,7 +22,7 @@
 
 # Usage
 
-/aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Arcane Client Dev are Arcane Client staff, but we included that just in case.
+**This is a plugin, so you just drop it into your plugins folder and you'll be done!**
 
 # Credits
 
