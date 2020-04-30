@@ -16,7 +16,7 @@
 
 - **Cooldowns (Ender Pearls, Combat Tag)**
 
-- **Waypoints**
+- **Waypoints (Spawn, End Koth, Citadel)**
 
 - **Much More!**
 
