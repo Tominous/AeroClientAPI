@@ -6,7 +6,7 @@
 
 # Information
 
-**This is the first official version of the ArcaneClientAPI, originally the Protocol Network's ClientAPI.<br> **
+**This is the first official version of the ArcaneClientAPI, originally the Protocol Network's ClientAPI.**
 
 # Features
 
