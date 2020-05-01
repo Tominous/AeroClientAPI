@@ -24,6 +24,8 @@
 
 **This is a plugin, so you just drop it into your plugins folder and you'll be done!**
 
+**The permission node is "clientapi.aac".**
+
 # Credits
 
 <h4>Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network.</h4>
