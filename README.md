@@ -12,7 +12,7 @@
 
 - **Staff Modules (You must be OP to have them enabled, and sometimes requires a relog.)**
 
-- **/aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Arcane Client Dev are Aero Client staff, but we included that just in case.**
+- **/aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Aero Client Dev are Aero Client staff, but we included that just in case.**
 
 - **Cooldowns (Ender Pearls, Combat Tag)**
 
