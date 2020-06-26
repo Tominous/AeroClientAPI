@@ -6,7 +6,7 @@
 
 # Information
 
-**This is the first official version of the AeroClientAPI, originally the Protocol Network's ClientAPI.**
+**This is the first official version of the AeroClientAPI.**
 
 # Features
 
