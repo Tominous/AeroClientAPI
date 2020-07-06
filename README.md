@@ -1,35 +1,23 @@
 # AeroClientAPI
-The AeroClientAPI serves as the brains for AeroClientAPI-Core.
 
-# AeroClientAPI-Core
-This is the plugin that has the API's functionality, and depends on the AeroClientAPI.
+# Information
+This is the first official version of the AeroClientAPI.
 
-## Compatibility
+# Features
+Staff Modules (You must be OP to have them enabled, and sometimes requires a relog.)
 
-This API has been tested with Spigot 1.7.10, PaperSpigot 1.7.10 and mSpigot 1.7.10 (MineHQ Spigot).
+/aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Aero Client Dev are Aero Client staff, but we included that just in case.
 
-This API can detect people on Aero Client 1.7.10 and 1.8.9.
+Cooldowns (Ender Pearls, Combat Tag)
 
-**Please note** that you must add ProtocolLib to your server for the API to work! You can get the latest one for 1.7.10 [here](https://github.com/dmulloy2/ProtocolLib/releases/tag/3.7.0).
+Waypoints (Spawn, End Koth, Citadel)
 
-## Download
+Much More!
 
-The latest release can be found [here](https://github.com/Aero-Client/AeroClientAPI/releases/latest).
+# Usage
+This is a plugin, so you just drop it into your plugins folder and you'll be done!
 
-## Commands
+The permission node is "clientapi.aac".
 
-`/aac` - To see the list of players that are using Aero Client.
-
-`/aac (username)` - To check if the player is using Aero Client.
-
-`/aacn` - To send a CB notification (Default permission: `aeroclient.admin`).
-
-`/aact` - To send a CB title text (Default permission: `aeroclient.admin`).
-
-## Reporting an issue
-
-If you suspect an issue you can submit one [here](https://github.com/Aero-Client/AeroClientAPI/issues).
-
-## Credits
-
-The original CheatBreaker API (made by FrozenOrb) can be found [here](https://github.com/CheatBreaker/CheatBreakerAPI).
+# Credits
+Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network.
