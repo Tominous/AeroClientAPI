@@ -1,31 +1,32 @@
-<h2 align="center">AeroClientAPI</h2>
+# Aero Client Bukkit API
+The AeroClientAPI will allow you to detect when a player is running Aero Client, enable and disable HUD modules, allow x-ray for your staff, and much more.
 
-<p align="center">
-    <img src="https://i.imgur.com/e4Au1VM.png" width="150" height="150"/>
-</p>
+## Compatibility
 
-# Information
+This API has been tested with Spigot 1.7.10, PaperSpigot 1.7.10 and mSpigot 1.7.10 (MineHQ Spigot).
 
-**This is the first official version of the AeroClientAPI.**
+This API can detect people on Offline CheatBreaker 1.7.10 and 1.8.9.
 
-# Features
+**Please note** that you must add ProtocolLib to your server for the API to work! You can get the latest one for 1.7.10 [here](https://github.com/dmulloy2/ProtocolLib/releases/tag/3.7.0).
 
-- **Staff Modules (You must be OP to have them enabled, and sometimes requires a relog.)**
+## Download
 
-- **/aac - Lists all players on the client, or are on a Development version of the client, the only people that have access to Aero Client Dev are Aero Client staff, but we included that just in case.**
+The latest release can be found [here](https://github.com/Aero-Client/AeroClientAPI/releases/latest).
 
-- **Cooldowns (Ender Pearls, Combat Tag)**
+## Commands
 
-- **Waypoints (Spawn, End Koth, Citadel)**
+`/aac` - To see the list of players that are using Aero Client.
 
-- **Much More!**
+`/aac (username)` - To check if the player is using Aero Client.
 
-# Usage
+`/aacn` - To send a CB notification (Default permission: `aeroclient.admin`).
 
-**This is a plugin, so you just drop it into your plugins folder and you'll be done!**
+`/aact` - To send a CB title text (Default permission: `aeroclient.admin`).
 
-**The permission node is "clientapi.aac".**
+## Reporting an issue
 
-# Credits
+If you suspect an issue you can submit one [here](https://github.com/Aero-Client/AeroClientAPI/issues).
 
-<h4>Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network.</h4>
+## Credits
+
+The original CheatBreaker API (made by FrozenOrb) can be found [here](https://github.com/CheatBreaker/CheatBreakerAPI).
