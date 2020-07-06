@@ -1,5 +1,8 @@
-# Aero Client Bukkit API
-The AeroClientAPI will allow you to detect when a player is running Aero Client, enable and disable HUD modules, allow x-ray for your staff, and much more.
+# AeroClientAPI
+The AeroClientAPI serves as the brains for AeroClientAPI-Core.
+
+# AeroClientAPI-Core
+This is the plugin that has the API's functionality, and depends on the AeroClientAPI.
 
 ## Compatibility
 
