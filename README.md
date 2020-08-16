@@ -6,7 +6,7 @@ This plugin is used to enable staff modules, and do exclusive things with Aero C
 
 # Features
 
-- Staff Modules (You must be OP to have them enabled, and sometimes requires a relog.)
+- Staff Modules (Sometimes requires a relog)
 
 - /aac - Lists all players on the stable and experimental versions of the client.
 
@@ -16,7 +16,9 @@ This plugin is used to enable staff modules, and do exclusive things with Aero C
 
 This is a plugin, so you just drop it into your plugins folder and you'll be done!
 
-The permission node is "aeroclientapi.aac".
+The permission node to check who is on Aero Client is "aeroclientapi.aac".
+
+The permission node for Staff Modules is "aeroclientapi.staffmods".
 
 # Credits
 
