@@ -22,4 +22,4 @@ The permission node for Staff Modules is "aeroclientapi.staffmods".
 
 # Credits
 
-Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network.
+Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network for making the backbone.
