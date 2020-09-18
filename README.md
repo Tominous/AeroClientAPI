@@ -6,11 +6,7 @@ This plugin is used to enable staff modules, and do exclusive things with Aero C
 
 # Features
 
-- Staff Modules (Sometimes requires a relog)
-
-- /aac - Lists all players on the stable and experimental versions of the client.
-
-- Ender Pearl Cooldown
+- /aachelp & /aacinfo list all features.
 
 # Usage
 
@@ -19,6 +15,8 @@ This is a plugin, so you just drop it into your plugins folder and you'll be don
 The permission node to check who is on Aero Client is "aeroclientapi.aac".
 
 The permission node for Staff Modules is "aeroclientapi.staffmods".
+
+All other permission nodes can be found by doing /aachelp.
 
 # Credits
 
