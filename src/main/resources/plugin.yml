@@ -1,0 +1,55 @@
+name: AeroClientAPI
+version: ${project.version}
+main: cf.cicigames.aeroclientapi.AeroClientAPI
+authors: [ Moose1301, ArcaneCiCi]
+description: Aero Client API
+commands:
+  clients:
+    description: Check who is on Aero Client and Lunar Client!
+    aliases:
+      - "aac"
+
+  aacinfo:
+    description: View the AeroClientAPI information!
+    aliases:
+      - "aacinfo"
+    permission: "aeroclientapi.info"
+
+  aachelp:
+    description: View the AeroClientAPI help page!
+    aliases:
+      - "aachelp"
+    permission: "aeroclientapi.help"
+
+  client:
+    description: View information about Aero Client!
+    aliases:
+      - "aeroclient"
+      - "client"
+
+  clientban:
+    description: Ban users from Aero Client!
+    aliases:
+      - "aacban"
+      - "clientban"
+      - "cban"
+    permission: "aeroclientapi.clientban"
+
+  clientunban:
+    description: Unban users from Aero Client!
+    aliases:
+      - "clientunban"
+    permission: "aeroclientapi.clientunban"
+
+  staffmods:
+    description: Grant a user Staff Modules!
+    aliases:
+      - "sm"
+      - "staffmods"
+    permission: "aeroclientapi.admin"
+
+  banwave:
+    description: Start an Aero Client banwave!
+    aliases:
+      - "bw"
+    permission: "aeroclientapi.admin"
