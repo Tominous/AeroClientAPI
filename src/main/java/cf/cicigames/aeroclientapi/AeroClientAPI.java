@@ -1,6 +1,7 @@
 package cf.cicigames.aeroclientapi;
 
 import cf.cicigames.aeroclientapi.command.*;
+import cf.cicigames.aeroclientapi.manager.AutoUpdateManager;
 import cf.cicigames.aeroclientapi.manager.BanWaveManager;
 import cf.cicigames.aeroclientapi.utils.nms.Fallback;
 import cf.cicigames.aeroclientapi.voicechat.PublicChannel;
@@ -26,12 +27,15 @@ public final class AeroClientAPI extends JavaPlugin {
     public static VoiceChannelHandler voiceChannelHandler;
     @Getter
     public static BanWaveManager banWaveManager;
+    @Getter
+    public static AutoUpdateManager autoUpdateManager;
     @Override
     public void onEnable() {
         instance = this;
         playerManager = new PlayerManager();
         voiceChannelHandler = new VoiceChannelHandler();
         banWaveManager = new BanWaveManager();
+        autoUpdateManager = new AutoUpdateManager();
         Bukkit.getPluginManager().registerEvents((Listener)new ClientLoginListener(), (Plugin)this);
 
         // Plugin startup logic
@@ -57,6 +61,12 @@ public final class AeroClientAPI extends JavaPlugin {
                 break;
         }
         new PublicChannel();
+        Bukkit.getScheduler().runTaskLater(this, new Runnable() {
+            @Override
+            public void run() {
+                autoUpdateManager.checkforupdate();
+            }
+        }, 100);
     }
 
     @Override
