@@ -20,7 +20,7 @@ public class PacketWaypointRemove extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = 2;
+    int id = getClient().getChannel().equals("AC-Client") ? 2 : 24;
     this.wrapper.writeVarInt(id);
     this.wrapper.writeString(this.name);
     this.wrapper.writeString(this.world);

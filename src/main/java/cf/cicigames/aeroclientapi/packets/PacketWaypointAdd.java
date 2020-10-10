@@ -37,7 +37,7 @@ public class PacketWaypointAdd extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = 0;
+    int id = getClient().getChannel().equals("AC-Client") ? 0 : 23;
     this.wrapper.writeVarInt(id);
 
     this.wrapper.writeString(this.name);

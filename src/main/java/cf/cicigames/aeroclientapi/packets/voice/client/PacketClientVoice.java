@@ -15,7 +15,7 @@ public class PacketClientVoice extends ClientPacket {
   }
   
   public void write(ByteBufWrapper b) {
-    int id = 16;
+    int id = getClient().getChannel().equals("AC-Client") ? 15 : 0;
     b.writeVarInt(id);
     writeBlob(b, this.data);
   }
@@ -23,8 +23,6 @@ public class PacketClientVoice extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = 15;
-    this.wrapper.writeVarInt(id);
     write(this.wrapper);
   }
   protected void writeBlob(ByteBufWrapper b, byte[] bytes) {

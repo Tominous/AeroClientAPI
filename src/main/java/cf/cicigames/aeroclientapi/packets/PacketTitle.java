@@ -32,7 +32,7 @@ public class PacketTitle extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = getClient().getChannel().equals("AC-Client") ? 12 : 100;
+    int id = getClient().getChannel().equals("AC-Client") ? 12 : 14;
     this.wrapper.writeVarInt(id);
     this.wrapper.writeString(this.type.getType());
     this.wrapper.writeString(this.message);

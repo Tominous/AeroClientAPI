@@ -16,7 +16,7 @@ public class PacketVoiceMute extends ClientPacket {
   }
   
   public void write(ByteBufWrapper b) {
-    int id = 19;
+    int id = getClient().getChannel().equals("AC-Client") ? 19 : 2;
     b.writeVarInt(id);
     b.writeUUID(this.muting);
   }

@@ -34,7 +34,7 @@ public class PacketVoiceChannelUpdate extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = 18;
+    int id = getClient().getChannel().equals("AC-Client") ? 18 : 19;
     this.wrapper.writeVarInt(id);
     write(this.wrapper);
   }

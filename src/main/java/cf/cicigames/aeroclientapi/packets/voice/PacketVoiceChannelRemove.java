@@ -25,7 +25,7 @@ public class PacketVoiceChannelRemove extends ClientPacket {
 
   @Override
   public void getData() {
-    int id = 21;
+    int id = getClient().getChannel().equals("AC-Client") ? 21 : 18;
     this.wrapper.writeVarInt(id);
     this.wrapper.writeUUID(this.uuid);
   }

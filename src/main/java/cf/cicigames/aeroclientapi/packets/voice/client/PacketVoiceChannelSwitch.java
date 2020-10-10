@@ -16,7 +16,7 @@ public class PacketVoiceChannelSwitch extends ClientPacket {
   }
 
   public void write(ByteBufWrapper b) {
-    int id = 20;
+    int id = getClient().getChannel().equals("AC-Client") ? 20 : 1;
     b.writeVarInt(id);
     b.writeUUID(this.switchingTo);
   }

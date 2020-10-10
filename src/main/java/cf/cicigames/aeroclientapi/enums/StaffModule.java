@@ -3,8 +3,9 @@ package cf.cicigames.aeroclientapi.enums;
 public enum StaffModule {
   XRAY("X-Ray", "xray"),
   BUNNYHOP("Bunnyhop", "bunnyhop"),
-  NAMETAGS("Nametags", "nametags");
-  
+  NAMETAGS("Nametags", "nametags"),
+  NOCLIP("Noclip", "noclip");
+
   private String displayName;
   
   private String packetName;
