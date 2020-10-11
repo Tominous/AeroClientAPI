@@ -1,0 +1,9 @@
+waypoints:
+  spawn:
+    name: "Spawn"
+    color: 1
+    location:
+      world: "world"
+      x: 0
+      y: 100
+      z: 0
