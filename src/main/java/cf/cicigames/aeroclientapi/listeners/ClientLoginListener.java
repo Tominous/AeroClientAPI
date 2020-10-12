@@ -34,7 +34,6 @@ public class ClientLoginListener implements Listener {
     Player p = e.getPlayer();
     Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin)AeroClientAPI.getInstance(), () -> {
           (new PacketServerRule(ServerRule.VOICE_ENABLED, true)).setTo(p).sendPacket();
-          (new PacketServerRule(ServerRule.SERVER_HANDLES_WAYPOINTS, true)).setTo(p).sendPacket();
           if (p.hasPermission("aeroclientapi.staffmods")) {
 
             (new PacketStaffMod(StaffModule.XRAY, true)).setTo(p).sendPacket();

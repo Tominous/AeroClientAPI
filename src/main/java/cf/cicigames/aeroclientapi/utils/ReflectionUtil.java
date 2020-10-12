@@ -77,4 +77,14 @@ public class ReflectionUtil {
       var4.printStackTrace();
     } 
   }
+
+  public static boolean isInt(String  number) {
+    try {
+      Integer num  = Integer.parseInt(number);
+      return true;
+    } catch (NumberFormatException nfe) {
+      return false;
+    }
+
+  }
 }

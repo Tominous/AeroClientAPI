@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class AutoUpdateManager {
-    private final String version = "1.6";
+    private final String version = "1.7";
 
     private final String GET_RELEASES_URL = "https://api.github.com/repos/Aero-Client/AeroClientAPI/releases";
 

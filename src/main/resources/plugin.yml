@@ -25,7 +25,11 @@ commands:
     aliases:
       - "accreload"
     permission: "aeroclientapi.reload"
-
+  setWaypoint:
+    description: Create a waypoint where you are standing!
+    aliases:
+      - "setwaypoint"
+    permission: "aeroclientapi.setwaypoint"
   client:
     description: View information about Aero Client!
     aliases:
