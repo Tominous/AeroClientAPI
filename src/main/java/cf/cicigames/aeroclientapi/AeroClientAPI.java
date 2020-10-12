@@ -52,6 +52,7 @@ public final class AeroClientAPI extends JavaPlugin {
         getCommand("banwave").setExecutor(new BanwaveCommand());
         getCommand("aacreload").setExecutor(new APIReload());
         getCommand("setwaypoint").setExecutor(new SetWaypoint());
+        getCommand("anotification").setExecutor(new ANotification());
         String name = getServer().getClass().getPackage().getName();
         String version = name.substring(name.lastIndexOf('.') + 1);
         if ("v1_8_R3".equals(version)) nmsHandler = new v1_8_R3(); else nmsHandler = new Fallback();

@@ -30,6 +30,13 @@ commands:
     aliases:
       - "setwaypoint"
     permission: "aeroclientapi.setwaypoint"
+  anotification :
+    description: Send notifications to all online Aero Client users!
+
+    aliases:
+      - "an"
+      - "anoti"
+    permission: "aeroclientapi.anotification "
   client:
     description: View information about Aero Client!
     aliases:

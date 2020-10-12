@@ -32,6 +32,7 @@ public class APIHelpCommand implements CommandExecutor {
     p.sendMessage(ChatColor.BLUE + "/clientunban: " + ChatColor.GREEN + "Unban a user from your server, cancels the client ban queue.");
     p.sendMessage(ChatColor.BLUE + "/staffmods: " + ChatColor.GREEN + "Grant a user staff modules.");
     p.sendMessage(ChatColor.BLUE + "/setwaypoint: " + ChatColor.GREEN + "Create a waypoint where you are standing.");
+    p.sendMessage(ChatColor.BLUE + "/anotification: " + ChatColor.GREEN + "Send notifications to all online Aero Client users!\n");
     p.sendMessage("");
     p.sendMessage(ChatColor.BLUE + "Permission Nodes:");
     p.sendMessage(ChatColor.BLUE + "aeroclientapi.staffmods: " + ChatColor.GREEN + "Grants Staff Mods.");
@@ -42,6 +43,7 @@ public class APIHelpCommand implements CommandExecutor {
     p.sendMessage(ChatColor.BLUE + "aeroclientapi.clientunban: " + ChatColor.GREEN + "Gives access to Client Unban");
     p.sendMessage(ChatColor.BLUE + "aeroclientapi.setwaypoint: " + ChatColor.GREEN + "Gives access to set a waypoint");
     p.sendMessage(ChatColor.BLUE + "aeroclientapi.reload: " + ChatColor.GREEN + "Gives access to reload the config");
+    p.sendMessage(ChatColor.BLUE + "aeroclientapi.anotification: " + ChatColor.GREEN + "Gives access to to send custom notifications");
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     p.sendMessage("");
