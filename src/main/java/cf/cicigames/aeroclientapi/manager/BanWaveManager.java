@@ -34,28 +34,35 @@ public class BanWaveManager {
         for(Map.Entry<String,Object> att : attributes.entrySet()){
             banUser(att.getKey());
         }
-
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
     }
 
 
-    @SneakyThrows
     private JsonObject getFromURL(String url) {
-        URL banWave = new URL(BanWaveURL); // URL to Parse
-        BufferedReader br = new BufferedReader(new InputStreamReader(banWave.openStream()));
-        String jsonS = "";
-        URLConnection conn = banWave.openConnection();
-        conn.connect();
-        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        String inputLine;
+        final JsonObject[] jsonObject = new JsonObject[1];
+        new Thread("BanWave USERS") {
+            @SneakyThrows
+            @Override
+                    public void run() {
+                URL banWave = new URL(BanWaveURL); // URL to Parse
+                BufferedReader br = new BufferedReader(new InputStreamReader(banWave.openStream()));
+                String jsonS = "";
+                URLConnection conn = banWave.openConnection();
+                conn.connect();
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
 
-        while((inputLine = in.readLine()) != null) {
-            jsonS+=inputLine;
-        }
-        Gson gson = new Gson();
-        JsonElement element = gson.fromJson (jsonS, JsonElement.class);
-        JsonObject jsonObj = element.getAsJsonObject();
-        in.close();
-        return jsonObj;
+                while ((inputLine = in.readLine()) != null) {
+                    jsonS += inputLine;
+                }
+
+                Gson gson = new Gson();
+                JsonElement element = gson.fromJson(jsonS, JsonElement.class);
+                jsonObject[0] = element.getAsJsonObject();
+                in.close();
+            }//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        };
+        return jsonObject[0];
     }
 
     private void banUser(String name) {

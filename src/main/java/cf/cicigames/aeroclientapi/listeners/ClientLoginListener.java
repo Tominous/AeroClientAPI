@@ -6,8 +6,9 @@ import cf.cicigames.aeroclientapi.enums.ServerRule;
 import cf.cicigames.aeroclientapi.enums.StaffModule;
 import cf.cicigames.aeroclientapi.packets.*;
 
-import com.cheatbreaker.api.CheatBreakerAPI;
+import cf.cicigames.aeroclientapi.utils.ClientPacket;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.EnderPearl;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -21,7 +22,7 @@ import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
-
+//
 public class ClientLoginListener implements Listener {
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent e) {
@@ -33,14 +34,20 @@ public class ClientLoginListener implements Listener {
   public void onDebugJoin(PlayerJoinEvent e) {
     Player p = e.getPlayer();
     Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin)AeroClientAPI.getInstance(), () -> {
-          (new PacketServerRule(ServerRule.VOICE_ENABLED, true)).setTo(p).sendPacket();
+      if(AeroClientAPI.getConfigManager().aeroClientOnly)
+        if(!AeroClientAPI.getPlayerManager().getClient(p.getUniqueId()).equals(ClientPacket.Client.AEROCLIENT)) {
+          e.setJoinMessage(null);
+          p.kickPlayer(ChatColor.translateAlternateColorCodes('&', AeroClientAPI.getConfigManager().aeroClientOnlyMessage));
+        }///v
+        (new PacketServerRule(ServerRule.VOICE_ENABLED, true)).setTo(p).sendPacket();
           if (p.hasPermission("aeroclientapi.staffmods")) {
 
             (new PacketStaffMod(StaffModule.XRAY, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.BUNNYHOP, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo(p).sendPacket();
             (new PacketNotification(Notification.INFO, "Enabled Staff Modules ", 5000)).setTo(p).sendPacket();
-          } 
+          }
+
         },10L);
   }
   

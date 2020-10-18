@@ -3,18 +3,17 @@ package cf.cicigames.aeroclientapi.utils.nms;
 
 import cf.cicigames.aeroclientapi.AeroClientAPI;
 import cf.cicigames.aeroclientapi.utils.ReflectionUtil;
-import net.minecraft.util.io.netty.buffer.ByteBuf;
-import net.minecraft.util.io.netty.buffer.Unpooled;
-import net.minecraft.util.org.apache.commons.io.FileUtils;
-import org.bukkit.entity.Player;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import org.apache.commons.io.FileUtils;
+import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
 
-public class Fallback implements NMSHandler {
+public class NMSFallback implements NMSHandler {
     @Override
     public void sendPacket(String channel, byte[] bytes, Player player) {
         try {

@@ -3,6 +3,7 @@ package cf.cicigames.aeroclientapi.manager;
 import cf.cicigames.aeroclientapi.AeroClientAPI;
 import cf.cicigames.aeroclientapi.packets.PacketWaypointAdd;
 import cf.cicigames.aeroclientapi.packets.PacketWaypointRemove;
+import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -13,11 +14,17 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 
 public class ConfigManager {
     public FileConfiguration config;
     private File configFile;
     public ArrayList<PacketWaypointAdd> waypoints = new ArrayList<>();
+    public boolean customNametag = false;
+    public boolean aeroClientOnly = false;
+    public String aeroClientOnlyMessage = "";
+    public ArrayList<String> nameTag = new ArrayList<>();
+
 
     public void getWaypointsFC() {
         if(!waypoints.isEmpty()) {
@@ -51,12 +58,7 @@ public class ConfigManager {
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
-        Bukkit.getScheduler().runTaskLater(AeroClientAPI.getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                getWaypointsFC();
-            }
-        }, 5L);
+        loadResources();
     }
 
     public void load() {
@@ -73,10 +75,22 @@ public class ConfigManager {
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
+      loadResources();
+    }
+
+    private void loadResources() {
         Bukkit.getScheduler().runTaskLater(AeroClientAPI.getInstance(), new Runnable() {
             @Override
             public void run() {
                 getWaypointsFC();
+                customNametag = config.getBoolean("nametag.enabled");
+                aeroClientOnly = config.getBoolean("settings.AeroClient-Only.enabled");
+                aeroClientOnlyMessage = config.getString("settings.AeroClient-Only.message");
+                if (customNametag) {
+                    nameTag.add(config.getString("nametag.below"));
+                    nameTag.add(config.getString("nametag.above"));
+                }
+
             }
         }, 5L);
     }

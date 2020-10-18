@@ -5,6 +5,8 @@ import cf.cicigames.aeroclientapi.utils.ClientPacket;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
+import lombok.Getter;
 import org.bukkit.entity.Player;
 
 public class PlayerManager {

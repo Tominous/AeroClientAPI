@@ -7,3 +7,12 @@ waypoints:
       x: 0
       y: 100
       z: 0
+nametag:
+  enabled: false
+  below: ""
+  above: "%faction_name% DTR: %faction_dtr%"
+
+settings:
+  AeroClient-Only:
+    enabled: false
+    kick-message: "&

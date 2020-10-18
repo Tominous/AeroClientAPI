@@ -1,20 +1,20 @@
 package cf.cicigames.aeroclientapi;
 
 import cf.cicigames.aeroclientapi.command.*;
-import cf.cicigames.aeroclientapi.manager.AutoUpdateManager;
-import cf.cicigames.aeroclientapi.manager.BanWaveManager;
-import cf.cicigames.aeroclientapi.manager.ConfigManager;
-import cf.cicigames.aeroclientapi.utils.nms.Fallback;
+import cf.cicigames.aeroclientapi.manager.*;
+import cf.cicigames.aeroclientapi.utils.hcfCores.HCFFallback;
+import cf.cicigames.aeroclientapi.utils.hcfCores.HCRealms;
+import cf.cicigames.aeroclientapi.utils.hcfCores.HCTeams;
+import cf.cicigames.aeroclientapi.utils.hcfCores.Lazarus;
+import cf.cicigames.aeroclientapi.utils.nms.NMSFallback;
+import cf.cicigames.aeroclientapi.utils.nms.v1_7_R4;
 import cf.cicigames.aeroclientapi.voicechat.PublicChannel;
 import cf.cicigames.aeroclientapi.voicechat.VoiceChannelHandler;
 import lombok.Getter;
 import cf.cicigames.aeroclientapi.listeners.ClientLoginListener;
-import cf.cicigames.aeroclientapi.manager.PlayerManager;
 import cf.cicigames.aeroclientapi.utils.nms.NMSHandler;
 import cf.cicigames.aeroclientapi.utils.nms.v1_8_R3;
 import org.bukkit.Bukkit;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
@@ -27,6 +27,7 @@ public final class AeroClientAPI extends JavaPlugin {
     @Getter private static BanWaveManager banWaveManager;
     @Getter private static AutoUpdateManager autoUpdateManager;
     @Getter private static ConfigManager configManager;
+    @Getter private static CustomNameTagsManager customNameTagsManager;
 
     @Override
     public void onEnable() {
@@ -36,6 +37,7 @@ public final class AeroClientAPI extends JavaPlugin {
         banWaveManager = new BanWaveManager();
         autoUpdateManager = new AutoUpdateManager();
         configManager = new ConfigManager();
+        customNameTagsManager = new CustomNameTagsManager();
         Bukkit.getPluginManager().registerEvents(new ClientLoginListener(), this);
 
         // Plugin startup logic
@@ -55,12 +57,23 @@ public final class AeroClientAPI extends JavaPlugin {
         getCommand("anotification").setExecutor(new ANotification());
         String name = getServer().getClass().getPackage().getName();
         String version = name.substring(name.lastIndexOf('.') + 1);
-        if ("v1_8_R3".equals(version)) nmsHandler = new v1_8_R3(); else nmsHandler = new Fallback();
+        if ("v1_8_R3".equals(version)) nmsHandler = new v1_8_R3(); else if ("v1_7_R4".equals(version)) nmsHandler = new v1_7_R4(); else nmsHandler = new NMSFallback();
+        if (getServer().getPluginManager().getPlugin("HCTeams") != null)
+            getCustomNameTagsManager().hcfCore = new HCTeams();
+        else if (getServer().getPluginManager().getPlugin("Lazarus") != null)
+            getCustomNameTagsManager().hcfCore = new Lazarus();
+        else if (getServer().getPluginManager().getPlugin("HCRealms") != null)
+            getCustomNameTagsManager().hcfCore = new HCRealms();
+        else {
+            getCustomNameTagsManager().hcfCore = new HCFFallback();
+            getLogger().info("Disabling custom name tags with faction placeholders due to a supported plugin not being installed. Please install HCTeams or Lazarus to use this feature");
+        }
+        getCustomNameTagsManager().run();
         new PublicChannel();
         Bukkit.getScheduler().runTaskLater(this, () -> {
-            try {
+            try {//vvvvvvvvvvvvvvv
                 autoUpdateManager.checkForUpdate();
-            } catch (IOException ex) {
+            } catch (IOException e) {
                 AeroClientAPI.getInstance().getLogger().info("Looks to be that github api is down, couldn't check for updates.");
             }
         }, 100);

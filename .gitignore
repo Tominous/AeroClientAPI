@@ -28,6 +28,12 @@ out/
 *.tar.gz
 *.rar
 
+#Dont Push libs because minecraft jar is in there
+libs/
+
+#Dont push the cheatbreaker api
+src/main/java/com
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 

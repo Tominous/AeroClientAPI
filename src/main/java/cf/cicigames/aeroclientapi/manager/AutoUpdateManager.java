@@ -2,20 +2,15 @@ package cf.cicigames.aeroclientapi.manager;
 
 import cf.cicigames.aeroclientapi.AeroClientAPI;
 import com.google.gson.*;
-import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.Map;
-import java.util.Set;
 
 public class AutoUpdateManager {
-    private final String version = "1.7";
+    private final String version = AeroClientAPI.getInstance().getDescription().getVersion();
 
     private final String GET_RELEASES_URL = "https://api.github.com/repos/Aero-Client/AeroClientAPI/releases";
 
@@ -51,10 +46,12 @@ public class AutoUpdateManager {
 
 
     private void downloadFile(String urlF, String version) {
-        AeroClientAPI.getNmsHandler().downloadFile(urlF, "AeroClientAPI-" + version +".jar");
-        File file = new File(AeroClientAPI.getInstance().getDataFolder().getParent() + "/AeroClientAPI-" + version + ".jar");
-        file.delete();
-        AeroClientAPI.getInstance().getLogger().info("Downloaded File");
+
+                AeroClientAPI.getNmsHandler().downloadFile(urlF, "AeroClientAPI-" + version + ".jar");
+
+                File file = new File(AeroClientAPI.getInstance().getDataFolder().getParent() + "/AeroClientAPI-" + version + ".jar");
+                file.delete();
+                AeroClientAPI.getInstance().getLogger().info("Downloaded File");
     }
 
 }

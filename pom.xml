@@ -6,7 +6,7 @@
 
     <groupId>me.moose</groupId>
     <artifactId>AeroClientAPI</artifactId>
-    <version>1.7</version>
+    <version>1.8</version>
     <packaging>jar</packaging>
 
     <name>AeroClientAPI</name>
@@ -94,6 +94,26 @@
             <version>1.7.10-R0.1-SNAPSHOT</version>
             <scope>system</scope>
             <systemPath>${basedir}/libs/spigot-1.7.10-SNAPSHOT.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>net.frozenorb</groupId>
+            <artifactId>foxtort</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/HCTeams-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>us.hcrealms</groupId>
+            <artifactId>hcf</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/HCRealms.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>4.1.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
