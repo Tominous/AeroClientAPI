@@ -22,7 +22,7 @@ import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
-//
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 public class ClientLoginListener implements Listener {
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent e) {

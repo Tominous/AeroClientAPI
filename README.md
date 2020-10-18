@@ -2,11 +2,16 @@
 
 # Information
 
+<<<<<<< HEAD
 This plugin is used to enable staff modules, and do exclusive things with Aero Client! 
 
 Working versions: 1.7 - 1.16.4
 
 If you are not on 1.7 or 1.8 **we will not help if you get any bugs with this plugin**.
+=======
+This plugin is used to enable staff modules, and do exclusive things with Aero Client!
+
+>>>>>>> f85ee61e4eb6950e555d5f760e49fb2a1d7aebfc
 # Features
 
 - /aachelp & /aacinfo list all features.
@@ -21,6 +26,7 @@ The permission node for Staff Modules is "aeroclientapi.staffmods".
 
 All other permission nodes can be found by doing /aachelp.
 
+<<<<<<< HEAD
 
 # Credits
 
@@ -46,3 +52,8 @@ cd AeroClientAPI/
 mvn package
 ```
 
+=======
+# Credits
+
+Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network for making the backbone.
+>>>>>>> f85ee61e4eb6950e555d5f760e49fb2a1d7aebfc
