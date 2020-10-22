@@ -24,6 +24,8 @@ The permission node to check who is on Aero Client is "aeroclientapi.API".
 The permission node for Staff Modules is "aeroclientapi.staffmods".
 
 All other permission nodes can be found by doing /APIhelp.
+=======
+All other permission nodes can be found by doing /aachelp.
 
 # Credits
 

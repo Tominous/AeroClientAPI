@@ -34,7 +34,7 @@ public class BanWaveManager {
         for(Map.Entry<String,Object> att : attributes.entrySet()){
             banUser(att.getKey());
         }
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+
     }
 
 
@@ -60,7 +60,7 @@ public class BanWaveManager {
                 JsonElement element = gson.fromJson(jsonS, JsonElement.class);
                 jsonObject[0] = element.getAsJsonObject();
                 in.close();
-            }//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+            }
         };
         return jsonObject[0];
     }
