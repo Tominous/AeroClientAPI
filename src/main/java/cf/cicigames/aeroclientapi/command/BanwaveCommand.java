@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 public class BanwaveCommand implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
     if (args.length == 0) {
-      sender.sendMessage(ChatColor.BLUE + "[AAC]: " + ChatColor.RED + "Usage: /banwave <start>");
+      sender.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.RED + "Usage: /banwave <start>");
       return true;
     }
     Bukkit.getServer().broadcastMessage(ChatColor.STRIKETHROUGH + "---------------------------------");

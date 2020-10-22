@@ -15,4 +15,4 @@ nametag:
 settings:
   AeroClient-Only:
     enabled: false
-    kick-message: "&9[AAC]&a You cannot join as you are not on Aero Client. Download it at &bAeroClient.tk"
+    kick-message: "&9[API]&a You cannot join as you are not on Aero Client. Download it at &bAeroClient.tk"

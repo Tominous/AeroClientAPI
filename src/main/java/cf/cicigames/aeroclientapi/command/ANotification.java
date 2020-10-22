@@ -20,26 +20,26 @@ public class ANotification implements CommandExecutor {
     }
     Player player = (Player) sender;
     if(args.length < 4)
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
     boolean everyone = args[0].equalsIgnoreCase("all");
     int time = 0;
     if(ReflectionUtil.isInt(args[2])) {
       time = Integer.valueOf(args[2]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
     if(!args[0].equalsIgnoreCase("all")) {
       if(Bukkit.getPlayer(args[0]) == null) {
-        player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "That Player is not online");
+        player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "That Player is not online");
         return false;
       }
     }
     if(!enumExists(args[1])) {
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
       return false;
     }
     Notification noti = Notification.valueOf(args[1].toUpperCase());
     String a = everyone ? "Everyone on AeroClient" : args[0];
-    player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Sent a Notifications to " + a);
+    player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Sent a Notifications to " + a);
     PacketNotification notification = new PacketNotification(noti, message(args), time);
     if(everyone) {
       for(Player player1 : Bukkit.getOnlinePlayers())

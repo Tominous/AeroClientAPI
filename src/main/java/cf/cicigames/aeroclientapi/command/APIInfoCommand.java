@@ -18,7 +18,7 @@ public class APIInfoCommand implements CommandExecutor {
     p.sendMessage("");
     p.sendMessage(ChatColor.BLUE + "Version: " + ChatColor.GREEN + "1.3");
     p.sendMessage(ChatColor.BLUE + "Support: " + ChatColor.GREEN + "support.aeroclient.tk");
-    p.sendMessage(ChatColor.BLUE + "Help: " + ChatColor.GREEN + "/aachelp");
+    p.sendMessage(ChatColor.BLUE + "Help: " + ChatColor.GREEN + "/APIhelp");
     p.sendMessage(ChatColor.BLUE + "Client Information: " + ChatColor.GREEN + "/client");
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");

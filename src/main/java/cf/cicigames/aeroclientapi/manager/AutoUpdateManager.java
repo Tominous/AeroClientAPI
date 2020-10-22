@@ -40,8 +40,8 @@ public class AutoUpdateManager {
 
         AeroClientAPI.getInstance().getLogger().info("Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author);
         AeroClientAPI.getInstance().getLogger().info("Please restart your server to use this new version");
-        Bukkit.broadcast(ChatColor.BLUE + "[AAC] Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author, "AeroClientAPI.admin");
-        Bukkit.broadcast(ChatColor.BLUE + "[AAC] Please restart your server to use this new version","AeroClientAPI.admin");
+        Bukkit.broadcast(ChatColor.BLUE + "[API] Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author, "AeroClientAPI.admin");
+        Bukkit.broadcast(ChatColor.BLUE + "[API] Please restart your server to use this new version","AeroClientAPI.admin");
     }
 
 

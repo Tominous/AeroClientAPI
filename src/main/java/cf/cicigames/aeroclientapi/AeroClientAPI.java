@@ -45,14 +45,14 @@ public final class AeroClientAPI extends JavaPlugin {
         getServer().getMessenger().registerOutgoingPluginChannel(this, "Lunar-Client");
         configManager.load();
         getCommand("clients").setExecutor(new ClientUsersCommand());
-        getCommand("aacinfo").setExecutor(new APIInfoCommand());
-        getCommand("aachelp").setExecutor(new APIHelpCommand());
+        getCommand("APIinfo").setExecutor(new APIInfoCommand());
+        getCommand("APIhelp").setExecutor(new APIHelpCommand());
         getCommand("client").setExecutor(new AeroClientCommand());
         getCommand("clientban").setExecutor(new ClientBanCommand());
         getCommand("clientunban").setExecutor(new ClientUnbanCommand());
         getCommand("staffmods").setExecutor(new StaffModsCommand());
         getCommand("banwave").setExecutor(new BanwaveCommand());
-        getCommand("aacreload").setExecutor(new APIReload());
+        getCommand("APIreload").setExecutor(new APIReload());
         getCommand("setwaypoint").setExecutor(new SetWaypoint());
         getCommand("anotification").setExecutor(new ANotification());
         String name = getServer().getClass().getPackage().getName();

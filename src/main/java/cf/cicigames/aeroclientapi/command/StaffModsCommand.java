@@ -22,18 +22,18 @@ public class StaffModsCommand implements CommandExecutor {
       (new PacketStaffMod(StaffModule.XRAY, true)).setTo((Player) sender).sendPacket();
       (new PacketStaffMod(StaffModule.BUNNYHOP, true)).setTo((Player) sender).sendPacket();
       (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo((Player) sender).sendPacket();
-      sender.sendMessage(ChatColor.BLUE + "[AAC]: Staff Modules have been enabled.");
+      sender.sendMessage(ChatColor.BLUE + "[API]: Staff Modules have been enabled.");
 
       return true;
     }
     Player target = Bukkit.getServer().getPlayer(args[0]);
 
     if (target == null) {
-      sender.sendMessage(ChatColor.BLUE + "[AAC]: " + ChatColor.RED + "No player is online with that name.");
+      sender.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.RED + "No player is online with that name.");
       return true;
     } 
-    sender.sendMessage(ChatColor.BLUE + "[AAC]: Staff Modules have been enabled for " + target.getName() + ".");
-    target.sendMessage(ChatColor.BLUE + "[AAC]: Staff Modules have been enabled.");
+    sender.sendMessage(ChatColor.BLUE + "[API]: Staff Modules have been enabled for " + target.getName() + ".");
+    target.sendMessage(ChatColor.BLUE + "[API]: Staff Modules have been enabled.");
     (new PacketNotification(Notification.INFO, "Enabled Staff Modules ", 5000)).setTo(target).sendPacket();
 
     (new PacketStaffMod(StaffModule.XRAY, true)).setTo(target).sendPacket();

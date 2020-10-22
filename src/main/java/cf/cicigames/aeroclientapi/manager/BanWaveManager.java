@@ -66,10 +66,10 @@ public class BanWaveManager {
     }
 
     private void banUser(String name) {
-        Bukkit.broadcastMessage(ChatColor.BLUE + "[AAC]: " + name + " has been Aero Client banned.");
+        Bukkit.broadcastMessage(ChatColor.BLUE + "[API]: " + name + " has been Aero Client banned.");
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);
         if(offlinePlayer.isOnline()) {
-            offlinePlayer.getPlayer().kickPlayer(ChatColor.BLUE + "[AAC]: " + ChatColor.RED + "You have been Aero Client banned.");
+            offlinePlayer.getPlayer().kickPlayer(ChatColor.BLUE + "[API]: " + ChatColor.RED + "You have been Aero Client banned.");
         }
         offlinePlayer.setBanned(true);
     }

@@ -20,7 +20,7 @@ public class SetWaypoint implements CommandExecutor {
     }
     Player player = (Player) sender;
     if(args.length < 4) {
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
       return false;
     }
     String name = args[0];
@@ -33,17 +33,17 @@ public class SetWaypoint implements CommandExecutor {
     if(check(args[1])) {
       r = Integer.getInteger(args[1]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
     if(check(args[2])) {
       g = Integer.getInteger(args[2]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
     if(check(args[3])) {
       b = Integer.getInteger(args[3]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
 
-    player.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Created Waypoint with name {name}".replace("{name}", name));
+    player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Created Waypoint with name {name}".replace("{name}", name));
     PacketWaypointAdd waypointAdd = new PacketWaypointAdd(name, player.getLocation().getWorld().getName(), color,
             player.getLocation().getBlockX(),
             player.getLocation().getBlockY(),

@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 
 public class APIReload implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
-    sender.sendMessage(ChatColor.BLUE + "[AAC] " + ChatColor.GREEN + "Reloaded Config!");
+    sender.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Reloaded Config!");
     AeroClientAPI.getConfigManager().reload();
     return false;
   }

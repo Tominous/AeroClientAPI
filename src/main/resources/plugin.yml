@@ -7,18 +7,18 @@ commands:
   clients:
     description: Check who is on Aero Client and Lunar Client!
     aliases:
-      - "aac"
+      - "API"
 
-  aacinfo:
+  APIinfo:
     description: View the AeroClientAPI information!
     aliases:
-      - "aacinfo"
+      - "APIinfo"
     permission: "aeroclientapi.info"
 
-  aachelp:
+  APIhelp:
     description: View the AeroClientAPI help page!
     aliases:
-      - "aachelp"
+      - "APIhelp"
     permission: "aeroclientapi.help"
   accreload:
     description: Reload the Config!
@@ -46,7 +46,7 @@ commands:
   clientban:
     description: Ban users from Aero Client!
     aliases:
-      - "aacban"
+      - "APIban"
       - "clientban"
       - "cban"
     permission: "aeroclientapi.clientban"
