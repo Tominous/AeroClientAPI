@@ -20,10 +20,10 @@ commands:
     aliases:
       - "APIhelp"
     permission: "aeroclientapi.help"
-  accreload:
+  apireload:
     description: Reload the Config!
     aliases:
-      - "accreload"
+      - "apireload"
     permission: "aeroclientapi.reload"
   setWaypoint:
     description: Create a waypoint where you are standing!
