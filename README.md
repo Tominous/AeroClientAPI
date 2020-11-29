@@ -27,10 +27,6 @@ All other permission nodes can be found by doing /APIhelp.
 
 If you have **ANY** cracked plugins in use we will not help you with your errors.
 
-# Credits
-
-Credits to CheatBreaker LLC, FrozenOrb LLC, and the Protocol Network for making the backbone.
-
 
 ## Building
 AeroClientAPI uses maven to handle dependencies & building.
