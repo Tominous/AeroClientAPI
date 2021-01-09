@@ -1,21 +1,20 @@
 package net.aeroclient.aeroclientapi;
 
-import cf.cicigames.aeroclientapi.command.*;
-import cf.cicigames.aeroclientapi.manager.*;
 import net.aeroclient.aeroclientapi.command.*;
+
 import net.aeroclient.aeroclientapi.manager.*;
 import net.aeroclient.aeroclientapi.utils.hcfCores.HCFFallback;
 import net.aeroclient.aeroclientapi.utils.hcfCores.HCRealms;
 import net.aeroclient.aeroclientapi.utils.hcfCores.HCTeams;
 import net.aeroclient.aeroclientapi.utils.hcfCores.Lazarus;
-import net.aeroclient.aeroclientapi.utils.nms.NMSFallback;
 import net.aeroclient.aeroclientapi.utils.nms.v1_7_R4;
 import net.aeroclient.aeroclientapi.voicechat.PublicChannel;
 import net.aeroclient.aeroclientapi.voicechat.VoiceChannelHandler;
 import lombok.Getter;
 import net.aeroclient.aeroclientapi.listeners.ClientLoginListener;
 import net.aeroclient.aeroclientapi.utils.nms.NMSHandler;
-import net.aeroclient.aeroclientapi.utils.nms.v1_8_R3;
+
+import net.aeroclient.aeroclientapi.command.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -45,21 +44,22 @@ public final class AeroClientAPI extends JavaPlugin {
         // Plugin startup logic
         getServer().getMessenger().registerOutgoingPluginChannel(this, "AC-Client");
         getServer().getMessenger().registerOutgoingPluginChannel(this, "Lunar-Client");
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "CB-Client");
         configManager.load();
         getCommand("clients").setExecutor(new ClientUsersCommand());
-        getCommand("APIinfo").setExecutor(new APIInfoCommand());
-        getCommand("APIhelp").setExecutor(new APIHelpCommand());
+        getCommand("apiinfo").setExecutor(new APIInfoCommand());
+        getCommand("apihelp").setExecutor(new APIHelpCommand());
         getCommand("client").setExecutor(new AeroClientCommand());
         getCommand("clientban").setExecutor(new ClientBanCommand());
         getCommand("clientunban").setExecutor(new ClientUnbanCommand());
         getCommand("staffmods").setExecutor(new StaffModsCommand());
         getCommand("banwave").setExecutor(new BanwaveCommand());
-        getCommand("APIreload").setExecutor(new APIReload());
+        getCommand("apireload").setExecutor(new APIReload());
         getCommand("setwaypoint").setExecutor(new SetWaypoint());
         getCommand("anotification").setExecutor(new ANotification());
         String name = getServer().getClass().getPackage().getName();
         String version = name.substring(name.lastIndexOf('.') + 1);
-        if ("v1_8_R3".equals(version)) nmsHandler = new v1_8_R3(); else if ("v1_7_R4".equals(version)) nmsHandler = new v1_7_R4(); else nmsHandler = new NMSFallback();
+        nmsHandler = new v1_7_R4();
         if (getServer().getPluginManager().getPlugin("HCTeams") != null)
             getCustomNameTagsManager().hcfCore = new HCTeams();
         else if (getServer().getPluginManager().getPlugin("Lazarus") != null)
@@ -71,9 +71,9 @@ public final class AeroClientAPI extends JavaPlugin {
             getLogger().info("Disabling custom name tags with faction placeholders due to a supported plugin not being installed. Please install HCTeams or Lazarus to use this feature");
         }
         getCustomNameTagsManager().run();
-        new PublicChannel();
+     //   new PublicChannel().enableVoiceChat();
         Bukkit.getScheduler().runTaskLater(this, () -> {
-            try {//vvvvvvvvvvvvvvv
+            try {
                 autoUpdateManager.checkForUpdate();
             } catch (IOException e) {
                 AeroClientAPI.getInstance().getLogger().info("Looks to be that github api is down, couldn't check for updates.");

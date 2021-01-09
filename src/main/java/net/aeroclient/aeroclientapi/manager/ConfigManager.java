@@ -3,7 +3,6 @@ package net.aeroclient.aeroclientapi.manager;
 import net.aeroclient.aeroclientapi.AeroClientAPI;
 import net.aeroclient.aeroclientapi.packets.PacketWaypointAdd;
 import net.aeroclient.aeroclientapi.packets.PacketWaypointRemove;
-import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.InvalidConfigurationException;

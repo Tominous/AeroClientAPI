@@ -6,7 +6,7 @@ import net.aeroclient.aeroclientapi.utils.ReflectionUtil;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import org.apache.commons.io.FileUtils;
+import net.minecraft.util.org.apache.commons.io.FileUtils;
 import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;

@@ -2,8 +2,6 @@ package net.aeroclient.aeroclientapi.voicechat;
 
 
 import net.aeroclient.aeroclientapi.packets.voice.PacketVoiceChannel;
-import com.cheatbreaker.nethandler.CBPacket;
-import com.cheatbreaker.nethandler.server.CBPacketVoiceChannel;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.entity.Player;

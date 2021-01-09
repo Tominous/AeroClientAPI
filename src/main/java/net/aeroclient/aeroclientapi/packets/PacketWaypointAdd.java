@@ -1,9 +1,7 @@
 package net.aeroclient.aeroclientapi.packets;
 
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
-import com.google.common.base.Preconditions;
 import lombok.Getter;
-import org.bukkit.Bukkit;
 
 @Getter
 public class PacketWaypointAdd extends ClientPacket {

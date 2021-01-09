@@ -1,6 +1,6 @@
 name: AeroClientAPI
 version: ${project.version}
-main: cf.cicigames.aeroclientapi.AeroClientAPI
+main: net.aeroclient.aeroclientapi.AeroClientAPI
 authors: [ Moose1301, ArcaneCiCi]
 description: Aero Client API
 commands:

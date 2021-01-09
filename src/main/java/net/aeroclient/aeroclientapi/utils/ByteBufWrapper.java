@@ -1,7 +1,7 @@
 package net.aeroclient.aeroclientapi.utils;
 
 import com.google.common.base.Charsets;
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 
 import java.util.UUID;
 import java.util.function.Consumer;

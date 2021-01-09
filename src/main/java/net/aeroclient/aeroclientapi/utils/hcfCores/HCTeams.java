@@ -1,7 +1,6 @@
 package net.aeroclient.aeroclientapi.utils.hcfCores;
 
 import net.frozenorb.foxtrot.Foxtrot;
-import net.frozenorb.foxtrot.team.TeamHandler;
 import org.bukkit.entity.Player;
 
 public class HCTeams implements HCFCoreHandler {

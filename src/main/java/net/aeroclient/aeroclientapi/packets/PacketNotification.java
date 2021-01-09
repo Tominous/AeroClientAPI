@@ -2,7 +2,6 @@ package net.aeroclient.aeroclientapi.packets;
 
 import net.aeroclient.aeroclientapi.enums.Notification;
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
-import org.bukkit.Bukkit;
 
 public class PacketNotification extends ClientPacket {
     Notification type;

@@ -10,10 +10,14 @@ import lombok.Getter;
 import org.bukkit.entity.Player;
 
 public class PlayerManager {
+  @Getter
   private Set<UUID> onLunarClient = new HashSet<>();
-  
+  @Getter
   private Set<UUID> onAeroClient = new HashSet<>();
-  
+  @Getter
+  private Set<UUID> onCheatBreaker = new HashSet<>();
+  @Getter
+  private Set<UUID> onForge = new HashSet<>();
   public void addToLC(Player p) {
     this.onLunarClient.add(p.getUniqueId());
   }
@@ -21,7 +25,7 @@ public class PlayerManager {
   public void addToAC(Player p) {
     this.onAeroClient.add(p.getUniqueId());
   }
-  
+
   public void removeFromLC(Player p) {
     if (this.onLunarClient.contains(p.getUniqueId()))
       this.onLunarClient.remove(p.getUniqueId()); 
@@ -31,11 +35,18 @@ public class PlayerManager {
     if (this.onAeroClient.contains(p.getUniqueId()))
       this.onAeroClient.remove(p.getUniqueId()); 
   }
-  
   public ClientPacket.Client getClient(UUID uuid) {
-    if (this.onAeroClient.contains(uuid))
-      return ClientPacket.Client.AEROCLIENT; 
-    return this.onLunarClient.contains(uuid) ? ClientPacket.Client.LUNARCLIENT : null;
+    if(onAeroClient.contains(uuid)) {
+      return ClientPacket.Client.AEROCLIENT;
+    } else if(onLunarClient.contains(uuid)) {
+     return ClientPacket.Client.LUNARCLIENT;
+    } else if(onCheatBreaker.contains(uuid)) {
+      return ClientPacket.Client.CHEATBREAKER;
+    } else if (onForge.contains(uuid)) {
+      return ClientPacket.Client.FORGE;
+    } else {
+      return ClientPacket.Client.VANILLA;
+    }
   }
   
   public boolean vanilla(UUID uuid) {

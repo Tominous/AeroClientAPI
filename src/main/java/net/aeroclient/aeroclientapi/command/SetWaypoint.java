@@ -26,8 +26,6 @@ public class SetWaypoint implements CommandExecutor {
     int g = 0;
     int b = 0;
 
-    Color rgb = new Color(r, g, b);
-    int color = rgb.getRGB();
     if(check(args[1])) {
       r = Integer.getInteger(args[1]);
     } else
@@ -40,6 +38,8 @@ public class SetWaypoint implements CommandExecutor {
       b = Integer.getInteger(args[3]);
     } else
       player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+    Color rgb = new Color(r, g, b);
+    int color = rgb.getRGB();
 
     player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Created Waypoint with name {name}".replace("{name}", name));
     PacketWaypointAdd waypointAdd = new PacketWaypointAdd(name, player.getLocation().getWorld().getName(), color,

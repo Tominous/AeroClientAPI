@@ -1,6 +1,5 @@
 package net.aeroclient.aeroclientapi.utils.hcfCores;
 
-import net.frozenorb.foxtrot.Foxtrot;
 import org.bukkit.entity.Player;
 
 public class HCFFallback implements HCFCoreHandler {
@@ -11,6 +10,6 @@ public class HCFFallback implements HCFCoreHandler {
 
     @Override
     public double getFactionDTR(Player name) {
-        return 0.0;//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+        return 0.0;
     }
 }

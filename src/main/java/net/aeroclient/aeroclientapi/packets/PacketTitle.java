@@ -2,6 +2,10 @@ package net.aeroclient.aeroclientapi.packets;
 
 import net.aeroclient.aeroclientapi.enums.TitleType;
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
+
+
+import net.aeroclient.aeroclientapi.enums.TitleType;
+import net.aeroclient.aeroclientapi.utils.ClientPacket;
 import java.beans.ConstructorProperties;
 
 public class PacketTitle extends ClientPacket {

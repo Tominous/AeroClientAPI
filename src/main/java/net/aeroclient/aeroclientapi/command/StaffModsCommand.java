@@ -6,7 +6,6 @@ import net.aeroclient.aeroclientapi.packets.PacketNotification;
 import net.aeroclient.aeroclientapi.packets.PacketStaffMod;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -37,8 +36,8 @@ public class StaffModsCommand implements CommandExecutor {
 
     (new PacketStaffMod(StaffModule.XRAY, true)).setTo(target).sendPacket();
       (new PacketStaffMod(StaffModule.BUNNYHOP, true)).setTo(target).sendPacket();
-      (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo(target).sendPacket();//
-      (new PacketStaffMod(StaffModule.NOCLIP, true)).setTo(target).sendPacket();//
+      (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo(target).sendPacket();
+      (new PacketStaffMod(StaffModule.NOCLIP, true)).setTo(target).sendPacket();
 
 
     return false;

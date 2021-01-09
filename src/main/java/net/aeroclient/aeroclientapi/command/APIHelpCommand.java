@@ -19,9 +19,9 @@ public class APIHelpCommand implements CommandExecutor {
     p.sendMessage("");
     p.sendMessage(ChatColor.BLUE + "Commands:");
     p.sendMessage(ChatColor.BLUE + "/clients: " + ChatColor.GREEN + "Show who is running Aero Client and Lunar Client.");
-    p.sendMessage(ChatColor.BLUE + "/APIinfo: " + ChatColor.GREEN + "Show info about the AeroClientAPI.");
-    p.sendMessage(ChatColor.BLUE + "/APIhelp: " + ChatColor.GREEN + "Show AeroClientAPI help.");
-    p.sendMessage(ChatColor.BLUE + "/APIreload: " + ChatColor.GREEN + "Reload the config");
+    p.sendMessage(ChatColor.BLUE + "/apiinfo: " + ChatColor.GREEN + "Show info about the AeroClientAPI.");
+    p.sendMessage(ChatColor.BLUE + "/apihelp: " + ChatColor.GREEN + "Show AeroClientAPI help.");
+    p.sendMessage(ChatColor.BLUE + "/apireload: " + ChatColor.GREEN + "Reload the config");
     p.sendMessage(ChatColor.BLUE + "/client: " + ChatColor.GREEN + "Show information about Aero Client.");
     p.sendMessage(ChatColor.BLUE + "/clientban: " + ChatColor.GREEN + "Ban a user from your server, and queue them up for a client ban.");
     p.sendMessage(ChatColor.BLUE + "/clientunban: " + ChatColor.GREEN + "Unban a user from your server, cancels the client ban queue.");

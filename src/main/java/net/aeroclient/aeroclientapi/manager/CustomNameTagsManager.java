@@ -14,8 +14,7 @@ public class CustomNameTagsManager {
     private final ArrayList<String> namesTags = AeroClientAPI.getConfigManager().nameTag;
     public boolean enabled = AeroClientAPI.getConfigManager().customNametag;
     public HCFCoreHandler hcfCore;
-    public void update(Player player) {//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-        //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    public void update(Player player) {
         if(!enabled)
             return;
         String factionName = hcfCore.getFactionName(player);

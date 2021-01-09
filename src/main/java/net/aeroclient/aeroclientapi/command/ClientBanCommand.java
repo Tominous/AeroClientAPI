@@ -2,7 +2,7 @@ package net.aeroclient.aeroclientapi.command;
 
 import net.aeroclient.aeroclientapi.AeroClientAPI;
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
-import net.minecraft.server.v1_8_R3.MinecraftServer;
+import net.minecraft.server.v1_7_R4.MinecraftServer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;

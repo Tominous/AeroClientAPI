@@ -18,8 +18,10 @@ public class ANotification implements CommandExecutor {
       return false;
     }
     Player player = (Player) sender;
-    if(args.length < 4)
+    if(args.length < 4) {
       player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /anotification <player / all> <info, error, neutral> <time> <message>");
+      return false;
+    }
     boolean everyone = args[0].equalsIgnoreCase("all");
     int time = 0;
     if(ReflectionUtil.isInt(args[2])) {
@@ -41,8 +43,8 @@ public class ANotification implements CommandExecutor {
     player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Sent a Notifications to " + a);
     PacketNotification notification = new PacketNotification(noti, message(args), time);
     if(everyone) {
-      for(Player player1 : Bukkit.getOnlinePlayers())
-        notification.setTo(player1).sendPacket();
+      for(Player allplayers : Bukkit.getOnlinePlayers())
+        notification.setTo(allplayers).sendPacket();
     } else {
       notification.setTo(Bukkit.getPlayer(args[0])).sendPacket();
     }

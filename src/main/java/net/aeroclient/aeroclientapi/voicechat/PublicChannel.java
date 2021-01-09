@@ -6,13 +6,11 @@ import com.cheatbreaker.api.voice.VoiceChannel;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class PublicChannel {
-    public void onEnable() {
+    public void enableVoiceChat() {
         AeroClientAPI.getVoiceChannelHandler().setVoiceEnabled(true);
-        final VoiceChannel publicVoiceChannel = new VoiceChannel("Voice Channel");
+        final VoiceChannel publicVoiceChannel = new VoiceChannel("Public Voice 1");
         CheatBreakerAPI.getInstance().createVoiceChannels(new VoiceChannel[] { publicVoiceChannel });
         AeroClientAPI.getInstance().getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler

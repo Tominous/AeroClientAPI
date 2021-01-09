@@ -22,7 +22,7 @@ public class ClientUsersCommand implements CommandExecutor {
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     p.sendMessage("");
-    p.sendMessage(ChatColor.BLUE + "Aero Client Users");
+    p.sendMessage(ChatColor.BLUE + "Aero Client" + ChatColor.WHITE + " Users");
     Iterator<UUID> var6 = AeroClientAPI.getPlayerManager().getOnAeroClient().iterator();
     while (var6.hasNext()) {
       UUID check = var6.next();
@@ -31,7 +31,7 @@ public class ClientUsersCommand implements CommandExecutor {
         p.sendMessage(ChatColor.BLUE + " - " + ChatColor.WHITE + target.getName()); 
     } 
     p.sendMessage("");
-    p.sendMessage(ChatColor.AQUA + "Lunar Client Users");
+    p.sendMessage(ChatColor.AQUA + "Lunar Client" + ChatColor.WHITE + " Users");
     var6 = AeroClientAPI.getPlayerManager().getOnLC().iterator();
     while (var6.hasNext()) {
       UUID check = var6.next();
@@ -39,6 +39,15 @@ public class ClientUsersCommand implements CommandExecutor {
       if (target != null)
         p.sendMessage(ChatColor.AQUA + " - " + ChatColor.WHITE + target.getName()); 
     } 
+    p.sendMessage("");
+    p.sendMessage(ChatColor.RED + "Cheat" + ChatColor.WHITE + "Breaker" + ChatColor.WHITE + " Users");
+    var6 = AeroClientAPI.getPlayerManager().getOnCheatBreaker().iterator();
+    while (var6.hasNext()) {
+      UUID check = var6.next();
+      Player target = Bukkit.getPlayer(check);
+      if (target != null)
+        p.sendMessage(ChatColor.RED + " - " + ChatColor.WHITE + target.getName());
+    }
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     p.sendMessage("");

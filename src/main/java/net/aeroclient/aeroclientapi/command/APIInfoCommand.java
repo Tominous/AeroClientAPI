@@ -11,8 +11,9 @@ public class APIInfoCommand implements CommandExecutor {
     if (!(sender instanceof Player)) {
       sender.sendMessage("This command can only be ran in-game.");
       return false;
-    } 
+    }
     Player p = (Player)sender;
+
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     p.sendMessage("");

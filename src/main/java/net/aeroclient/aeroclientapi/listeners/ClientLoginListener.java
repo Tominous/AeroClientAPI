@@ -4,13 +4,15 @@ import net.aeroclient.aeroclientapi.AeroClientAPI;
 import net.aeroclient.aeroclientapi.enums.Notification;
 import net.aeroclient.aeroclientapi.enums.ServerRule;
 import net.aeroclient.aeroclientapi.enums.StaffModule;
-import cf.cicigames.aeroclientapi.packets.*;
+
+import net.aeroclient.aeroclientapi.packets.*;
 
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
 import net.aeroclient.aeroclientapi.packets.PacketNotification;
 import net.aeroclient.aeroclientapi.packets.PacketServerRule;
 import net.aeroclient.aeroclientapi.packets.PacketStaffMod;
 import net.aeroclient.aeroclientapi.packets.PacketUpdateWorld;
+import net.aeroclient.aeroclientapi.utils.ClientPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EnderPearl;
@@ -26,7 +28,6 @@ import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
-//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 public class ClientLoginListener implements Listener {
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent e) {
@@ -42,13 +43,14 @@ public class ClientLoginListener implements Listener {
         if(!AeroClientAPI.getPlayerManager().getClient(p.getUniqueId()).equals(ClientPacket.Client.AEROCLIENT)) {
           e.setJoinMessage(null);
           p.kickPlayer(ChatColor.translateAlternateColorCodes('&', AeroClientAPI.getConfigManager().aeroClientOnlyMessage));
-        }///v
+        }
         (new PacketServerRule(ServerRule.VOICE_ENABLED, true)).setTo(p).sendPacket();
           if (p.hasPermission("aeroclientapi.staffmods")) {
 
             (new PacketStaffMod(StaffModule.XRAY, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.BUNNYHOP, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo(p).sendPacket();
+            (new PacketStaffMod(StaffModule.NOCLIP, true)).setTo(p).sendPacket();
             (new PacketNotification(Notification.INFO, "Enabled Staff Modules ", 5000)).setTo(p).sendPacket();
           }
 
@@ -69,18 +71,29 @@ public class ClientLoginListener implements Listener {
   @EventHandler
   public void onRegister(PlayerRegisterChannelEvent e) {
     if (e.getChannel().equals("AC-Client")) {
-      AeroClientAPI.getPlayerManager().addToAC(e.getPlayer());
-      AeroClientAPI.getVoiceChannelHandler().getMuteMap().put(e.getPlayer().getUniqueId(), new ArrayList());
-      new PacketUpdateWorld(e.getPlayer().getWorld().getName()).setTo(e.getPlayer()).sendPacket();
+      if (AeroClientAPI.getPlayerManager().getClient(e.getPlayer().getUniqueId()).equals(ClientPacket.Client.VANILLA)) {
+        AeroClientAPI.getPlayerManager().addToAC(e.getPlayer());
+        AeroClientAPI.getVoiceChannelHandler().getMuteMap().put(e.getPlayer().getUniqueId(), new ArrayList());
+        new PacketUpdateWorld(e.getPlayer().getWorld().getName()).setTo(e.getPlayer()).sendPacket();
+      }
+    } else if(e.getChannel().equalsIgnoreCase("CB-Client")) {
+      if(AeroClientAPI.getPlayerManager().getClient(e.getPlayer().getUniqueId()).equals(ClientPacket.Client.VANILLA))
+        AeroClientAPI.getPlayerManager().getOnCheatBreaker().add(e.getPlayer().getUniqueId());
+    } else if (e.getChannel().equals("Lunar-Client")) {
+      if (AeroClientAPI.getPlayerManager().getClient(e.getPlayer().getUniqueId()).equals(ClientPacket.Client.VANILLA))
+        AeroClientAPI.getPlayerManager().addToLC(e.getPlayer());
+    } else if(e.getChannel().equalsIgnoreCase("FML") || e.getChannel().equalsIgnoreCase("FORGE") || e.getChannel().equalsIgnoreCase("FML|HS") || e.getChannel().equalsIgnoreCase("FML|MP")) {
+      if (AeroClientAPI.getPlayerManager().getClient(e.getPlayer().getUniqueId()).equals(ClientPacket.Client.VANILLA))
+        AeroClientAPI.getPlayerManager().getOnForge().add(e.getPlayer().getUniqueId());
     }
-    if (e.getChannel().equals("Lunar-Client"))
-      AeroClientAPI.getPlayerManager().addToLC(e.getPlayer());
   }
   
   @EventHandler
   public void onPlayerLeave(PlayerQuitEvent e) {
     AeroClientAPI.getPlayerManager().removeFromAC(e.getPlayer());
     AeroClientAPI.getPlayerManager().removeFromLC(e.getPlayer());
+    AeroClientAPI.getPlayerManager().getOnCheatBreaker().remove(e.getPlayer().getUniqueId());
+    AeroClientAPI.getPlayerManager().getOnForge().remove(e.getPlayer().getUniqueId());
     AeroClientAPI.getVoiceChannelHandler().getPlayerActiveChannels().remove(e.getPlayer().getUniqueId());
     AeroClientAPI.getVoiceChannelHandler().getMuteMap().remove(e.getPlayer().getUniqueId());
   }

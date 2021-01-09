@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class AutoUpdateManager {
-    private final String version = AeroClientAPI.getInstance().getDescription().getVersion();
+    private final String version = AeroClientAPI.getInstance().getDescription().getVersion() + "-dev";
 
     private final String GET_RELEASES_URL = "https://api.github.com/repos/Aero-Client/AeroClientAPI/releases";
 
@@ -25,7 +25,7 @@ public class AutoUpdateManager {
         String author = object.get("author").getAsJsonObject().get("login").getAsString();
         String downloadURL = object.get("assets").getAsJsonArray().get(0).getAsJsonObject().get("browser_download_url").getAsString();
 
-        if (version.equals(this.version)) {
+        if (version.equals(this.version) || this.version.contains("-dev")) {
             AeroClientAPI.getInstance().getLogger().info("No updates found.");
             return;
         } else if (version.contains("-dev") || version.contains("-development")) {
