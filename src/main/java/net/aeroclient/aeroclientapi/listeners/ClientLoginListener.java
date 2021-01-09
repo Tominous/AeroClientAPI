@@ -73,7 +73,6 @@ public class ClientLoginListener implements Listener {
     if (e.getChannel().equals("AC-Client")) {
       if (AeroClientAPI.getPlayerManager().getClient(e.getPlayer().getUniqueId()).equals(ClientPacket.Client.VANILLA)) {
         AeroClientAPI.getPlayerManager().addToAC(e.getPlayer());
-        AeroClientAPI.getVoiceChannelHandler().getMuteMap().put(e.getPlayer().getUniqueId(), new ArrayList());
         new PacketUpdateWorld(e.getPlayer().getWorld().getName()).setTo(e.getPlayer()).sendPacket();
       }
     } else if(e.getChannel().equalsIgnoreCase("CB-Client")) {
@@ -94,8 +93,6 @@ public class ClientLoginListener implements Listener {
     AeroClientAPI.getPlayerManager().removeFromLC(e.getPlayer());
     AeroClientAPI.getPlayerManager().getOnCheatBreaker().remove(e.getPlayer().getUniqueId());
     AeroClientAPI.getPlayerManager().getOnForge().remove(e.getPlayer().getUniqueId());
-    AeroClientAPI.getVoiceChannelHandler().getPlayerActiveChannels().remove(e.getPlayer().getUniqueId());
-    AeroClientAPI.getVoiceChannelHandler().getMuteMap().remove(e.getPlayer().getUniqueId());
   }
   
   private void registerClient(Player p) {

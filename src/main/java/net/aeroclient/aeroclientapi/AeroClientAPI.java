@@ -8,13 +8,10 @@ import net.aeroclient.aeroclientapi.utils.hcfCores.HCRealms;
 import net.aeroclient.aeroclientapi.utils.hcfCores.HCTeams;
 import net.aeroclient.aeroclientapi.utils.hcfCores.Lazarus;
 import net.aeroclient.aeroclientapi.utils.nms.v1_7_R4;
-import net.aeroclient.aeroclientapi.voicechat.PublicChannel;
-import net.aeroclient.aeroclientapi.voicechat.VoiceChannelHandler;
 import lombok.Getter;
 import net.aeroclient.aeroclientapi.listeners.ClientLoginListener;
 import net.aeroclient.aeroclientapi.utils.nms.NMSHandler;
 
-import net.aeroclient.aeroclientapi.command.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,7 +21,6 @@ public final class AeroClientAPI extends JavaPlugin {
     @Getter private static AeroClientAPI instance;
     @Getter private static PlayerManager playerManager;
     @Getter private static NMSHandler nmsHandler;
-    @Getter private static VoiceChannelHandler voiceChannelHandler;
     @Getter private static BanWaveManager banWaveManager;
     @Getter private static AutoUpdateManager autoUpdateManager;
     @Getter private static ConfigManager configManager;
@@ -34,7 +30,6 @@ public final class AeroClientAPI extends JavaPlugin {
     public void onEnable() {
         instance = this;
         playerManager = new PlayerManager();
-        voiceChannelHandler = new VoiceChannelHandler();
         banWaveManager = new BanWaveManager();
         autoUpdateManager = new AutoUpdateManager();
         configManager = new ConfigManager();
@@ -71,7 +66,6 @@ public final class AeroClientAPI extends JavaPlugin {
             getLogger().info("Disabling custom name tags with faction placeholders due to a supported plugin not being installed. Please install HCTeams or Lazarus to use this feature");
         }
         getCustomNameTagsManager().run();
-     //   new PublicChannel().enableVoiceChat();
         Bukkit.getScheduler().runTaskLater(this, () -> {
             try {
                 autoUpdateManager.checkForUpdate();
