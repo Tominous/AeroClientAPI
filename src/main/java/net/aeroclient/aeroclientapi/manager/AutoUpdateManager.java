@@ -31,27 +31,24 @@ public class AutoUpdateManager {
         } else if (version.contains("-dev") || version.contains("-development")) {
             AeroClientAPI.getInstance().getLogger().info("Found new update but its a development build.");
             return;
-        }  // servers should always upgrade from development builds, not stay at them since development build can have problems etc.
+        }
         foundUpdate(version, author, downloadURL);
     }
 
     public void foundUpdate(String version, String author, String downloadURL) {
         downloadFile(downloadURL, version);
-
         AeroClientAPI.getInstance().getLogger().info("Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author);
         AeroClientAPI.getInstance().getLogger().info("Please restart your server to use this new version");
-        Bukkit.broadcast(ChatColor.BLUE + "[API] Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author, "AeroClientAPI.admin");
-        Bukkit.broadcast(ChatColor.BLUE + "[API] Please restart your server to use this new version","AeroClientAPI.admin");
+        Bukkit.broadcast(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Update Date Checker Found update with version " + version + " your version is " + this.version + ". This update was made by " + author, "AeroClientAPI.admin");
+        Bukkit.broadcast(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Please restart your server to use this new version","AeroClientAPI.admin");
     }
 
 
     private void downloadFile(String urlF, String version) {
-
-                AeroClientAPI.getNmsHandler().downloadFile(urlF, "AeroClientAPI-" + version + ".jar");
-
-                File file = new File(AeroClientAPI.getInstance().getDataFolder().getParent() + "/AeroClientAPI-" + version + ".jar");
-                file.delete();
-                AeroClientAPI.getInstance().getLogger().info("Downloaded File");
+        AeroClientAPI.getNmsHandler().downloadFile(urlF, "AeroClientAPI-" + version + ".jar");
+        File file = new File(AeroClientAPI.getInstance().getDataFolder().getParent() + "/AeroClientAPI-" + version + ".jar");
+        file.delete();
+        AeroClientAPI.getInstance().getLogger().info("Downloaded File");
     }
 
 }

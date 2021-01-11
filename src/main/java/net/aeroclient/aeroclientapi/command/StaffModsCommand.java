@@ -13,6 +13,10 @@ import org.bukkit.entity.Player;
 
 public class StaffModsCommand implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    if (!(sender instanceof Player)) {
+      sender.sendMessage("This command can only be ran in-game.");
+      return false;
+    }
 
     if (args.length == 0) {
       (new PacketNotification(Notification.INFO, "Enabled Staff Modules ", 5000)).setTo((Player) sender).sendPacket();

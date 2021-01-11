@@ -1,42 +1,45 @@
 name: AeroClientAPI
 version: ${project.version}
 main: net.aeroclient.aeroclientapi.AeroClientAPI
-authors: [ Moose1301, ArcaneCiCi]
-description: Aero Client API
+authors: [Aero Client Development Team]
+description: AeroClientAPI
 commands:
-  clients:
-    description: Check who is on Aero Client and Lunar Client!
+  clientlist:
+    description: Check who is on Aero Client, CheatBreaker, or Lunar Client!
     aliases:
-      - "API"
+      - "clients"
 
-  APIinfo:
+  apiinfo:
     description: View the AeroClientAPI information!
     aliases:
       - "APIinfo"
     permission: "aeroclientapi.info"
 
-  APIhelp:
+  apihelp:
     description: View the AeroClientAPI help page!
     aliases:
       - "APIhelp"
-    permission: "aeroclientapi.help"
+
   apireload:
     description: Reload the Config!
     aliases:
       - "apireload"
     permission: "aeroclientapi.reload"
+
   setWaypoint:
     description: Create a waypoint where you are standing!
     aliases:
       - "setwaypoint"
     permission: "aeroclientapi.setwaypoint"
+
   anotification :
     description: Send notifications to all online Aero Client users!
 
     aliases:
       - "an"
       - "anoti"
-    permission: "aeroclientapi.anotification "
+    permission: "aeroclientapi.anotification"
+
   client:
     description: View information about Aero Client!
     aliases:

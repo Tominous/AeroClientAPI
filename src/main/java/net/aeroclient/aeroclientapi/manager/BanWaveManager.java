@@ -6,21 +6,11 @@ import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-
 import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.charset.Charset;
 import java.util.*;
-
 
 public class BanWaveManager {
     private String BanWaveURL = "https://raw.githubusercontent.com/Aero-Client/ClientAPI/master/AeroClientAPI/banlist";
@@ -36,7 +26,6 @@ public class BanWaveManager {
         }
 
     }
-
 
     private JsonObject getFromURL(String url) {
         final JsonObject[] jsonObject = new JsonObject[1];
@@ -69,7 +58,7 @@ public class BanWaveManager {
         Bukkit.broadcastMessage(ChatColor.BLUE + "[API]: " + name + " has been Aero Client banned.");
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);
         if(offlinePlayer.isOnline()) {
-            offlinePlayer.getPlayer().kickPlayer(ChatColor.BLUE + "[API]: " + ChatColor.RED + "You have been Aero Client banned.");
+            offlinePlayer.getPlayer().kickPlayer(ChatColor.BLUE + "[API]: " + ChatColor.RED + "You have been Aero Client banned. Appeal at aeroclient.net/appeal");
         }
         offlinePlayer.setBanned(true);
     }

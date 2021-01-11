@@ -4,15 +4,11 @@ import net.aeroclient.aeroclientapi.AeroClientAPI;
 import net.aeroclient.aeroclientapi.enums.Notification;
 import net.aeroclient.aeroclientapi.enums.ServerRule;
 import net.aeroclient.aeroclientapi.enums.StaffModule;
-
-import net.aeroclient.aeroclientapi.packets.*;
-
 import net.aeroclient.aeroclientapi.utils.ClientPacket;
 import net.aeroclient.aeroclientapi.packets.PacketNotification;
 import net.aeroclient.aeroclientapi.packets.PacketServerRule;
 import net.aeroclient.aeroclientapi.packets.PacketStaffMod;
 import net.aeroclient.aeroclientapi.packets.PacketUpdateWorld;
-import net.aeroclient.aeroclientapi.utils.ClientPacket;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.EnderPearl;
@@ -27,7 +23,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.Plugin;
 
-import java.util.ArrayList;
 public class ClientLoginListener implements Listener {
   @EventHandler
   public void onPlayerJoin(PlayerJoinEvent e) {
@@ -46,14 +41,12 @@ public class ClientLoginListener implements Listener {
         }
         (new PacketServerRule(ServerRule.VOICE_ENABLED, true)).setTo(p).sendPacket();
           if (p.hasPermission("aeroclientapi.staffmods")) {
-
             (new PacketStaffMod(StaffModule.XRAY, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.BUNNYHOP, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.NAMETAGS, true)).setTo(p).sendPacket();
             (new PacketStaffMod(StaffModule.NOCLIP, true)).setTo(p).sendPacket();
             (new PacketNotification(Notification.INFO, "Enabled Staff Modules ", 5000)).setTo(p).sendPacket();
           }
-
         },10L);
   }
   
@@ -63,7 +56,6 @@ public class ClientLoginListener implements Listener {
       EnderPearl pearl = (EnderPearl)event.getEntity();
       if (pearl.getShooter() instanceof Player) {
         Player shooter = (Player)pearl.getShooter();
-   //     (new PacketCooldown("enderpearl", 16000L, 368)).setTo(shooter).sendPacket();
       } 
     } 
   }

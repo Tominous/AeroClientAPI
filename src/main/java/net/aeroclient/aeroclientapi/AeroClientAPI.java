@@ -36,12 +36,11 @@ public final class AeroClientAPI extends JavaPlugin {
         customNameTagsManager = new CustomNameTagsManager();
         Bukkit.getPluginManager().registerEvents(new ClientLoginListener(), this);
 
-        // Plugin startup logic
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "AC-Client");
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "Lunar-Client");
-        getServer().getMessenger().registerOutgoingPluginChannel(this, "CB-Client");
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "AC-Client"); // Aero Client Channel
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "Lunar-Client"); // Lunar Client Channel
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "CB-Client"); // CheatBreaker Client Channel
         configManager.load();
-        getCommand("clients").setExecutor(new ClientUsersCommand());
+        getCommand("clientlist").setExecutor(new ClientListCommand());
         getCommand("apiinfo").setExecutor(new APIInfoCommand());
         getCommand("apihelp").setExecutor(new APIHelpCommand());
         getCommand("client").setExecutor(new AeroClientCommand());

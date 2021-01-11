@@ -17,9 +17,9 @@ public class APIInfoCommand implements CommandExecutor {
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     p.sendMessage("");
-    p.sendMessage(ChatColor.BLUE + "Version: " + ChatColor.GREEN + "1.3");
-    p.sendMessage(ChatColor.BLUE + "Support: " + ChatColor.GREEN + "support.aeroclient.tk");
-    p.sendMessage(ChatColor.BLUE + "Help: " + ChatColor.GREEN + "/APIhelp");
+    p.sendMessage(ChatColor.BLUE + "Version: " + ChatColor.GREEN + "2.1");
+    p.sendMessage(ChatColor.BLUE + "Support: " + ChatColor.GREEN + "discord.aeroclient.net");
+    p.sendMessage(ChatColor.BLUE + "Help: " + ChatColor.GREEN + "/apihelp");
     p.sendMessage(ChatColor.BLUE + "Client Information: " + ChatColor.GREEN + "/client");
     p.sendMessage("");
     p.sendMessage(ChatColor.STRIKETHROUGH + "---------------------------------");

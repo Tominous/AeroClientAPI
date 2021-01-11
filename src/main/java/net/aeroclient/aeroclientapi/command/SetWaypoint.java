@@ -12,13 +12,12 @@ import org.bukkit.entity.Player;
 
 public class SetWaypoint implements CommandExecutor {
   public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
+    Player player = (Player) sender;
     if (!(sender instanceof Player)) {
       sender.sendMessage("This command can only be ran in-game.");
       return false;
-    }
-    Player player = (Player) sender;
-    if(args.length < 4) {
-      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+    } else if(args.length < 4) {
+      player.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
       return false;
     }
     String name = args[0];
@@ -29,19 +28,19 @@ public class SetWaypoint implements CommandExecutor {
     if(check(args[1])) {
       r = Integer.getInteger(args[1]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
     if(check(args[2])) {
       g = Integer.getInteger(args[2]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
     if(check(args[3])) {
       b = Integer.getInteger(args[3]);
     } else
-      player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
+      player.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Usage: /setwaypoint <name> R G B ");
     Color rgb = new Color(r, g, b);
     int color = rgb.getRGB();
 
-    player.sendMessage(ChatColor.BLUE + "[API] " + ChatColor.GREEN + "Created Waypoint with name {name}".replace("{name}", name));
+    player.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.GREEN + "Created Waypoint with name {name}".replace("{name}", name));
     PacketWaypointAdd waypointAdd = new PacketWaypointAdd(name, player.getLocation().getWorld().getName(), color,
             player.getLocation().getBlockX(),
             player.getLocation().getBlockY(),

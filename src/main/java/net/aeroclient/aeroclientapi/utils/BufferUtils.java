@@ -1,12 +1,13 @@
 package net.aeroclient.aeroclientapi.utils;
-import com.google.common.base.Charsets;
 
+import com.google.common.base.Charsets;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.UUID;
+
 public class BufferUtils {
 
     public static byte[] writeVarInt(int value) throws IOException {
