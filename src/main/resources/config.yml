@@ -16,3 +16,4 @@ settings:
   AeroClient-Only:
     enabled: false
     kick-message: "&9[API]&a You must use Aero Client to join this network. Download it at &baeroclient.net"
+  killbannedUsersGame: true
