@@ -25,9 +25,6 @@ public class ClientBanCommand implements CommandExecutor {
     } else if (target == null) {
       sender.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.RED + "No player is online with that name.");
       return true;
-    } else if (uuid.equalsIgnoreCase("58025126-17c2-4fe3-bbc9-81519341f7d6") || uuid.equalsIgnoreCase("12e0d63d-9e50-49a9-b5fe-4229fba667f2") || uuid.equalsIgnoreCase("285c25e3-74f6-47e0-81a6-4e74ceb54ed3")) {
-      sender.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.RED + "You may not ban that player.");
-      return false;
     } else if(!SpigotConfig.bungee && !MinecraftServer.getServer().getOnlineMode()) {
       sender.sendMessage(ChatColor.BLUE + "[API]: " + ChatColor.RED + "You may not ban that player while the server is not using online mode.");
     } else if(AeroClientAPI.getPlayerManager().getClient(target.getUniqueId()) != ClientPacket.Client.AEROCLIENT) {
