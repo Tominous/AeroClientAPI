@@ -14,7 +14,7 @@ public class BanwaveCommand implements CommandExecutor {
       return true;
     }
     Bukkit.getServer().broadcastMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
-    Bukkit.getServer().broadcastMessage(ChatColor.BLUE + "Aero Client Banwave Starting");
+    Bukkit.getServer().broadcastMessage(ChatColor.BLUE + "An Aero Client Banwave is Starting");
     Bukkit.getServer().broadcastMessage(ChatColor.STRIKETHROUGH + "---------------------------------");
     AeroClientAPI.getBanWaveManager().startBanWave();
     return false;
